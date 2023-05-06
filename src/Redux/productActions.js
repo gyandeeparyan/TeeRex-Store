@@ -16,8 +16,8 @@ export const PRODUCT_SEARCH="PRODUCT_SEARCH";
  export const get_product_request=()=>(dispatch)=>{
           dispatch(product_loading())
         setTimeout(() => {
-            axios.get("https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json").then((res)=>{
-                dispatch(product_success(res.data))
+            axios.get("https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json").then((response)=>{
+                dispatch(product_success(response.data))
             }).catch((err)=>{
                   dispatch(product_error())
             })
