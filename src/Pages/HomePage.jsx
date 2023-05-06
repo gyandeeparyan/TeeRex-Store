@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import {
   get_product_request,
@@ -12,10 +11,10 @@ import ProductCard from "../components/ProductCard";
 import Navbar from "../components/Navbar";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
+
 const HomePage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { cartData } = useSelector((store) => store.cartSlice);
+
   const { fetchedData, filterData, loading, error } = useSelector(
     (store) => store.productSlice
   );
@@ -23,7 +22,7 @@ const HomePage = () => {
   const [selectedCategory, setSelectedCategory] = useState([]);
   const [searchInput, setSearchInput] = useState("");
 
-  const selectCategoryHandler = (e) => {
+  const handleCategory = (e) => {
     const { checked, value } = e.target;
     if (checked) {
       setSelectedCategory([...selectedCategory, value]);
@@ -32,8 +31,7 @@ const HomePage = () => {
     }
   };
 
-  const searchDataHandler = () => {
-   
+  const handleSearchData = () => {
     dispatch(product_search(searchInput.split(" ")));
   };
   const searchOnKeyPress = (e) => {
@@ -43,7 +41,6 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-   
     dispatch(product_filter(selectedCategory));
   }, [selectedCategory]);
 
@@ -61,9 +58,9 @@ const HomePage = () => {
           onChange={(e) => {
             setSearchInput(e.target.value);
           }}
-          onKeyPress={searchOnKeyPress}
+          onKeyDown={searchOnKeyPress}
         />
-        <div className='searchIconDiv' onClick={searchDataHandler}>
+        <div className='searchIconDiv' onClick={handleSearchData}>
           <SearchIcon />
         </div>
       </div>
@@ -79,7 +76,7 @@ const HomePage = () => {
               <input
                 type='checkbox'
                 name=''
-                onChange={selectCategoryHandler}
+                onChange={handleCategory}
                 value={"Red"}
               />{" "}
               <label htmlFor=''>Red</label>
@@ -88,7 +85,7 @@ const HomePage = () => {
               <input
                 type='checkbox'
                 name=''
-                onChange={selectCategoryHandler}
+                onChange={handleCategory}
                 value={"Blue"}
               />{" "}
               <label htmlFor=''>Blue</label>
@@ -97,7 +94,7 @@ const HomePage = () => {
               <input
                 type='checkbox'
                 name=''
-                onChange={selectCategoryHandler}
+                onChange={handleCategory}
                 value={"Green"}
               />{" "}
               <label htmlFor=''>Green</label>
@@ -110,7 +107,7 @@ const HomePage = () => {
               <input
                 type='checkbox'
                 name=''
-                onChange={selectCategoryHandler}
+                onChange={handleCategory}
                 value={"Men"}
               />{" "}
               <label htmlFor=''>Men</label>
@@ -119,7 +116,7 @@ const HomePage = () => {
               <input
                 type='checkbox'
                 name=''
-                onChange={selectCategoryHandler}
+                onChange={handleCategory}
                 value={"Women"}
               />{" "}
               <label htmlFor=''>Women</label>
@@ -132,7 +129,7 @@ const HomePage = () => {
               <input
                 type='checkbox'
                 name=''
-                onChange={selectCategoryHandler}
+                onChange={handleCategory}
                 value={"250"}
               />{" "}
               <label htmlFor=''>0-250</label>
@@ -141,7 +138,7 @@ const HomePage = () => {
               <input
                 type='checkbox'
                 name=''
-                onChange={selectCategoryHandler}
+                onChange={handleCategory}
                 value={"251"}
               />{" "}
               <label htmlFor=''>251-450</label>
@@ -150,7 +147,7 @@ const HomePage = () => {
               <input
                 type='checkbox'
                 name=''
-                onChange={selectCategoryHandler}
+                onChange={handleCategory}
                 value={"450"}
               />{" "}
               <label htmlFor=''>450</label>
@@ -163,7 +160,7 @@ const HomePage = () => {
               <input
                 type='checkbox'
                 name=''
-                onChange={selectCategoryHandler}
+                onChange={handleCategory}
                 value={"Polo"}
               />{" "}
               <label htmlFor=''>Polo</label>
@@ -172,7 +169,7 @@ const HomePage = () => {
               <input
                 type='checkbox'
                 name=''
-                onChange={selectCategoryHandler}
+                onChange={handleCategory}
                 value={"Hoodie"}
               />{" "}
               <label htmlFor=''>Hoodie</label>
@@ -181,7 +178,7 @@ const HomePage = () => {
               <input
                 type='checkbox'
                 name=''
-                onChange={selectCategoryHandler}
+                onChange={handleCategory}
                 value={"Basic"}
               />{" "}
               <label htmlFor=''>Basic</label>

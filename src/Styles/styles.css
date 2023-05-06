@@ -73,16 +73,16 @@ Variables
     text-transform: uppercase;
     background: var(--clr-primary);
     color: var(--clr-white);
-    padding: 0.375rem 0.75rem;
+    padding: 10px;
     letter-spacing: var(--spacing);
     display: inline-block;
     font-weight: 700;
     transition: var(--transition);
     font-size: 0.875rem;
-    border: none;
+    border: var(--clr-primary);
     cursor: pointer;
     width: 25%;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
   }
   .btn:hover {
    
@@ -362,10 +362,8 @@ input{
 .cart_main{
     width: 100%;
     height: 500px;
-    display: flex;
-    justify-content:space-around;
-    flex-direction: column;
-    margin-top: 400px;
+    
+    margin-top: 100px;
 }
 .cart_main > p{
 
@@ -382,7 +380,8 @@ input{
 
 }
 .cart_content > .cart_content_main{
-    border-radius: 20px;
+    border-radius: 10px;
+    
    background-color:#ac8bfa52;
     display: flex;
     
@@ -392,10 +391,10 @@ input{
     margin-bottom: 25px;
 }
 .cart_content_main>img{
-    width:20%;
-    height: 80%;
-    margin:20px 10px;
-    border-radius: 20px;
+    width:10%;
+   
+    margin:20px 20px;
+    border-radius: 10px;
 }
 .cart_content_main >.price_and_title_box{
     width: 25%;
@@ -428,9 +427,10 @@ input{
 
 }
 .cart-details>button{
-    border-radius: 20px;
+    border-radius: 5px;
     margin-top: 20px;
-    margin-left: 100px;
+    margin-left: 90px;
+    margin-bottom: 50px;
 }
 
 .cart-details>p{
@@ -479,8 +479,12 @@ input{
 .empty-cart{
   display: flex;
   justify-content: center;
-  margin-top: 300px;
+  margin-top: 100px;
   cursor: pointer;
+ 
+}
+.empty-cart>h3{
+  margin-bottom: 20px;
 }
 
 .error{

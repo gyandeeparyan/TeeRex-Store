@@ -21,8 +21,9 @@ const CartPage = () => {
 
   return (
     <>
-      <Navbar />
+       <Navbar />
       <div className='cart_main'>
+     
         <div className='cart_content'>
           {cartData.length ? (
             cartData.map((e, i) => {
@@ -91,6 +92,7 @@ const CartPage = () => {
               }}
               className='empty-cart'
             >
+              
               <EmptyCart />
             </div>
           )}
