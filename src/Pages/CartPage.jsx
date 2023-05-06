@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   decrease_item_quantity,
   delete_cart_item,
-  get_total_item_price,
+  
   increase_item_quantity,
 } from "../Redux/cartActions";
 import { useNavigate } from "react-router-dom";
