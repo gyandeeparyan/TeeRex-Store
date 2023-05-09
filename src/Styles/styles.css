@@ -474,8 +474,7 @@ input{
     
 }
 .increase_decrease_box > button{
-    width: 40px;
-    height: 40px;
+   width: 50px;
     border-radius: 20%;
     border: none;
     color:white;

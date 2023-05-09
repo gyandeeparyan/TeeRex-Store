@@ -10,6 +10,8 @@ import {
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import EmptyCart from "../components/EmptyCart";
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 
 const CartPage = () => {
   const { cartData } = useSelector((store) => store.cartSlice);
@@ -58,7 +60,7 @@ const CartPage = () => {
                           dispatch(increase_item_quantity(e.id));
                         }}
                       >
-                        +
+                        <AddCircleIcon/>
                       </button>
                       <div style={{ marginTop: "6px" }}>
                         <h3>{e.currentQuantity}</h3>
@@ -68,7 +70,7 @@ const CartPage = () => {
                           dispatch(decrease_item_quantity(e.id));
                         }}
                       >
-                        -
+                        <RemoveCircleIcon/>
                       </button>
                     </div>
                     <div className='remove'>
@@ -99,7 +101,7 @@ const CartPage = () => {
         </div>
         <div className='cart-details'>
           <p>YOUR CART SUMMARY</p>
-          <p>PAYABLE AMOUNT : {totalPrice === 0 ? "" : totalPrice}</p>
+          <p>PAYABLE AMOUNT : INR {totalPrice === 0 ? "" : totalPrice}</p>
           <button className='btn'>Checkout</button>
         </div>
       </div>
