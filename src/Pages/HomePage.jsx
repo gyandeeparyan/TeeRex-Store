@@ -55,10 +55,14 @@ const HomePage = () => {
         <input
           type='text'
           placeholder='Search (try Black Polo)'
+          onKeyUp={  searchOnKeyPress}
           onChange={(e) => {
             setSearchInput(e.target.value);
-          }}
+          
+          }
+        }
           onKeyDown={searchOnKeyPress}
+         
         />
         <div className='searchIconDiv' onClick={handleSearchData}>
           <SearchIcon />

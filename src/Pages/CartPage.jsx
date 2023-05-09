@@ -49,7 +49,7 @@ const CartPage = () => {
                         onClick={() => {
                           // checking quantity limit
                           let itemIndex = cartData.findIndex(
-                            (e) => e.currentQuantity > e.quantity
+                            (e) => e.currentQuantity > (e.quantity-1)
                           );
                           if (itemIndex != -1) {
                             alert("Item quantity limit is exceeded ");

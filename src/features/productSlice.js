@@ -49,18 +49,25 @@ const handleFilter=(data ,selectedValues)=>{
 
 const handleSearch=(data,inputValues)=>{
 
-      let search_result= data.filter((e)=>{
-                if((e.color==inputValues[0] && e.type==inputValues[1])){
-                    return e
-                }
-            //   if( e.color==inputValues[0] ){
-            //           return e
-            //     }
-            //      if( e.type==inputValues[0]){
-            //         return e
-            //   }
-      });
-      console.log("searched data" , search_result)
-      return search_result.length?search_result:data
+   let result = data.filter((e)=>{
+      let type = e.type;
+      let color = e.color;
+      let gender = e.gender;
+
+      if(inputValues.length > 1){
+         if(color.toLowerCase() == inputValues[0].toLowerCase() && type.toLowerCase() == inputValues[1].toLowerCase() ){
+            return e;
+         }
+      }
+      else if(color.toLowerCase() == inputValues[0].toLowerCase()){
+         return e;
+      }
+      else if(gender.toLowerCase() == inputValues[0].toLowerCase()){
+         return e;
+      }
+
+           
+   });
+   return result.length  ? result : data
 
 }
